@@ -1,0 +1,39 @@
+body nav ul{
+    display: flex;
+    gap: 30px;
+}
+body nav ul li{
+    list-style: none;
+}
+nav{
+    background-color: purple;
+    padding: 20px;
+    color: white;
+    font-size: larger;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.title{
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: x-large;
+    color: rgb(205, 59, 59);
+}
+.desc{
+    margin: 5px;
+        font-size: large;
+
+}
+.hobby{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+    font-size: large;
+}

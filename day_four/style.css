@@ -1,0 +1,26 @@
+*{
+    margin: 0; 
+    padding: 0;
+}
+.Second,.Fourth{
+    background-color: red;
+    color: white;
+}
+/* This is comment*/
+#First{
+    background-color: brown;
+    color: white;
+}
+.ok{
+        padding: 30px;
+    margin: 30px;
+    border: 1px solid black;
+
+}
+.button{
+    background-color: blue;
+    color: white;
+    font-weight: 800;
+    padding: 30px;
+    border: 2px solid red;
+}
