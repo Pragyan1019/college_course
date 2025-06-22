@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Flexbox Challenges</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .challenge {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .challenge-header {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .challenge-description {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .challenge-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .code-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        .code-editor {
+            flex: 1;
+        }
+
+        .code-editor h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .code-input {
+            width: 100%;
+            height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            background: #fafafa;
+        }
+
+        .preview-section {
+            width: 100%;
+        }
+
+        .preview-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .preview-header h4 {
+            color: #333;
+            flex: 1;
+            text-align: center;
+        }
+
+        .preview-container {
+            display: flex;
+            gap: 20px;
+            height: 300px;
+        }
+
+        .preview-output,
+        .expected-output {
+            flex: 1;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-output iframe,
+        .expected-output iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .success {
+            border-color: #28a745 !important;
+        }
+
+        .flex-item {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .flex-item:nth-child(2) { background: #28a745; }
+        .flex-item:nth-child(3) { background: #ffc107; color: #333; }
+        .flex-item:nth-child(4) { background: #dc3545; }
+        .flex-item:nth-child(5) { background: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 Interactive Flexbox Challenges</h1>
+        <p>Master CSS Flexbox with 15 hands-on challenges. Edit the code and see results in real-time!</p>
+    </div>
+
+    <div id="challenges-container"></div>
+
+    <script>
+        const challenges = [
+            {
+                title: "Challenge 1: Create a Flex Container",
+                description: "Turn the container into a flex container. Add 'display: flex' to the .container class.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Item 1</div>
+  <div class="flex-item">Item 2</div>
+  <div class="flex-item">Item 3</div>
+</div>`,
+                cssCode: `.container {
+  /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 2: Center Items Horizontally",
+                description: "Center all flex items horizontally using justify-content.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">A</div>
+  <div class="flex-item">B</div>
+  <div class="flex-item">C</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  /* Add justify-content here */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 3: Center Items Vertically",
+                description: "Center all flex items vertically using align-items. The container has a height of 200px.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">X</div>
+  <div class="flex-item">Y</div>
+  <div class="flex-item">Z</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  height: 200px;
+  /* Add align-items here */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  height: 200px;
+  align-items: center;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 4: Perfect Centering",
+                description: "Center items both horizontally and vertically using both justify-content and align-items.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">CENTER</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  height: 200px;
+  /* Add both centering properties */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 5: Space Between Items",
+                description: "Distribute items with equal space between them using justify-content: space-between.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Start</div>
+  <div class="flex-item">Middle</div>
+  <div class="flex-item">End</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  /* Add space-between */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 6: Space Around Items",
+                description: "Distribute items with equal space around them using justify-content: space-around.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">1</div>
+  <div class="flex-item">2</div>
+  <div class="flex-item">3</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  /* Add space-around */
+  border: 2px solid #333;
+  padding: 20px;
+}`,
+                solution: `.container {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid #333;
+  padding: 20px;
+}`
+            },
+            {
+                title: "Challenge 7: Column Direction",
+                description: "Change flex direction to column using flex-direction: column.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Top</div>
+  <div class="flex-item">Middle</div>
+  <div class="flex-item">Bottom</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  /* Add flex-direction: column */
+  border: 2px solid #333;
+  padding: 20px;
+  height: 300px;
+}`,
+                solution: `.container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  padding: 20px;
+  height: 300px;
+}`
+            },
+            {
+                title: "Challenge 8: Wrap Items",
+                description: "Allow items to wrap to the next line using flex-wrap: wrap.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Item 1</div>
+  <div class="flex-item">Item 2</div>
+  <div class="flex-item">Item 3</div>
+  <div class="flex-item">Item 4</div>
+  <div class="flex-item">Item 5</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  /* Add flex-wrap */
+  border: 2px solid #333;
+  padding: 20px;
+  width: 400px;
+}`,
+                solution: `.container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #333;
+  padding: 20px;
+  width: 400px;
+}`
+            },
+            {
+                title: "Challenge 9: Flex Grow",
+                description: "Make the second item grow to fill available space using flex-grow: 1.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Small</div>
+  <div class="flex-item grow">Grow Me!</div>
+  <div class="flex-item">Small</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.grow {
+  /* Add flex-grow here */
+}`,
+                solution: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.grow {
+  flex-grow: 1;
+}`
+            },
+            {
+                title: "Challenge 10: Align Self",
+                description: "Align the middle item to the bottom using align-self: flex-end.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Top</div>
+  <div class="flex-item special">Bottom</div>
+  <div class="flex-item">Top</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  align-items: flex-start;
+  height: 200px;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.special {
+  /* Add align-self here */
+}`,
+                solution: `.container {
+  display: flex;
+  align-items: flex-start;
+  height: 200px;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.special {
+  align-self: flex-end;
+}`
+            },
+            {
+                title: "Challenge 11: Order Property",
+                description: "Change the order of items using the order property. Make 'Third' appear first.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">First</div>
+  <div class="flex-item">Second</div>
+  <div class="flex-item reorder">Third</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.reorder {
+  /* Add order property */
+}`,
+                solution: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.reorder {
+  order: -1;
+}`
+            },
+            {
+                title: "Challenge 12: Flex Basis",
+                description: "Set the base width of the middle item to 200px using flex-basis.",
+                htmlCode: `<div class="container">
+  <div class="flex-item">Auto</div>
+  <div class="flex-item fixed">200px Base</div>
+  <div class="flex-item">Auto</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.fixed {
+  /* Add flex-basis here */
+}`,
+                solution: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.fixed {
+  flex-basis: 200px;
+}`
+            },
+            {
+                title: "Challenge 13: Flex Shorthand",
+                description: "Use flex shorthand (flex: 1) to make all items grow equally.",
+                htmlCode: `<div class="container">
+  <div class="flex-item equal">Equal</div>
+  <div class="flex-item equal">Equal</div>
+  <div class="flex-item equal">Equal</div>
+</div>`,
+                cssCode: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.equal {
+  /* Add flex shorthand */
+}`,
+                solution: `.container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.equal {
+  flex: 1;
+}`
+            },
+            {
+                title: "Challenge 14: Nested Flexbox",
+                description: "Create a nested flexbox layout. Make the inner container a flex container with centered items.",
+                htmlCode: `<div class="outer-container">
+  <div class="flex-item">Side</div>
+  <div class="inner-container">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+  </div>
+</div>`,
+                cssCode: `.outer-container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.inner-container {
+  /* Make this a flex container with centered items */
+  border: 2px solid #666;
+  padding: 10px;
+  flex: 1;
+}`,
+                solution: `.outer-container {
+  display: flex;
+  border: 2px solid #333;
+  padding: 20px;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #666;
+  padding: 10px;
+  flex: 1;
+}`
+            },
+            {
+                title: "Challenge 15: Complete Layout",
+                description: "Create a complete layout: header at top, footer at bottom, content in middle with sidebar and main area.",
+                htmlCode: `<div class="layout">
+  <div class="header">Header</div>
+  <div class="content">
+    <div class="sidebar">Sidebar</div>
+    <div class="main">Main Content</div>
+  </div>
+  <div class="footer">Footer</div>
+</div>`,
+                cssCode: `.layout {
+  /* Make this a column flex container */
+  height: 300px;
+  border: 2px solid #333;
+}
+
+.content {
+  /* Make this a row flex container */
+  flex: 1;
+}
+
+.sidebar {
+  /* Give sidebar fixed width */
+}
+
+.main {
+  /* Make main area grow */
+}
+
+.header, .footer {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}`,
+                solution: `.layout {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  border: 2px solid #333;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  flex-basis: 150px;
+  background: #f8f9fa;
+  padding: 10px;
+}
+
+.main {
+  flex: 1;
+  background: #fff;
+  padding: 10px;
+}
+
+.header, .footer {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}`
+            }
+        ];
+
+        function createChallenge(challenge, index) {
+            const challengeDiv = document.createElement('div');
+            challengeDiv.className = 'challenge';
+            challengeDiv.innerHTML = `
+                <div class="challenge-header">${challenge.title}</div>
+                <div class="challenge-description">${challenge.description}</div>
+                <div class="challenge-content">
+                    <div class="code-section">
+                        <div class="code-editor">
+                            <h4>HTML</h4>
+                            <textarea class="code-input html-input" readonly>${challenge.htmlCode}</textarea>
+                        </div>
+                        <div class="code-editor">
+                            <h4>CSS (Edit this!)</h4>
+                            <textarea class="code-input css-input">${challenge.cssCode}</textarea>
+                        </div>
+                    </div>
+                    <div class="preview-section">
+                        <div class="preview-header">
+                            <h4>Your Output</h4>
+                            <h4>Expected Output</h4>
+                        </div>
+                        <div class="preview-container">
+                            <div class="preview-output">
+                                <iframe class="user-preview"></iframe>
+                            </div>
+                            <div class="expected-output">
+                                <iframe class="expected-preview"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const cssInput = challengeDiv.querySelector('.css-input');
+            const htmlInput = challengeDiv.querySelector('.html-input');
+            const userPreview = challengeDiv.querySelector('.user-preview');
+            const expectedPreview = challengeDiv.querySelector('.expected-preview');
+
+            function updatePreview() {
+                const htmlContent = htmlInput.value;
+                const cssContent = cssInput.value;
+                
+                const fullHTML = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>
+                            ${cssContent}
+                            .flex-item {
+                                background: #007bff;
+                                color: white;
+                                padding: 20px;
+                                margin: 5px;
+                                text-align: center;
+                                font-weight: bold;
+                                border-radius: 5px;
+                                min-width: 60px;
+                            }
+                            .flex-item:nth-child(2) { background: #28a745; }
+                            .flex-item:nth-child(3) { background: #ffc107; color: #333; }
+                            .flex-item:nth-child(4) { background: #dc3545; }
+                            .flex-item:nth-child(5) { background: #6c757d; }
+                        </style>
+                    </head>
+                    <body style="margin: 0; padding: 10px; font-family: Arial, sans-serif;">
+                        ${htmlContent}
+                    </body>
+                    </html>
+                `;
+
+                const expectedHTML = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>
+                            ${challenge.solution}
+                            .flex-item {
+                                background: #007bff;
+                                color: white;
+                                padding: 20px;
+                                margin: 5px;
+                                text-align: center;
+                                font-weight: bold;
+                                border-radius: 5px;
+                                min-width: 60px;
+                            }
+                            .flex-item:nth-child(2) { background: #28a745; }
+                            .flex-item:nth-child(3) { background: #ffc107; color: #333; }
+                            .flex-item:nth-child(4) { background: #dc3545; }
+                            .flex-item:nth-child(5) { background: #6c757d; }
+                        </style>
+                    </head>
+                    <body style="margin: 0; padding: 10px; font-family: Arial, sans-serif;">
+                        ${htmlContent}
+                    </body>
+                    </html>
+                `;
+
+                userPreview.src = 'data:text/html;charset=utf-8,' + encodeURIComponent(fullHTML);
+                expectedPreview.src = 'data:text/html;charset=utf-8,' + encodeURIComponent(expectedHTML);
+            }
+
+            cssInput.addEventListener('input', updatePreview);
+            
+            // Initial preview
+            setTimeout(updatePreview, 100);
+
+            return challengeDiv;
+        }
+
+        // Create all challenges
+        const container = document.getElementById('challenges-container');
+        challenges.forEach((challenge, index) => {
+            container.appendChild(createChallenge(challenge, index));
+        });
+    </script>
+</body>
+</html>

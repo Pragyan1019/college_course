@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    background-color: yellow;
+    padding: 30px;
+    border: 2px solid red;
+    margin: 30px;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: 700;
+    box-shadow: 7px 10px red;
+}
+.container{
+    display:  flex;
+}
+.box2{
+margin: 30px 10px 20px 40px;
+    height: 50vh;
+    width: 40vw;
+    cursor: pointer;
+}
+img{
+    height: 100%;
+    width: 100%;
+}

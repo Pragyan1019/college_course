@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="form1.css" />
+</head>
+<body>
+    <h1 class="title">Code Library Survey Form</h1>
+    <main>
+      <div class="container">
+        <div class="name">
+          <label for="name" class="label">Name</label><br />
+          <input
+            type="text"
+            class="input"
+            id="name"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div class="Email">
+          <label for="Email" class="label">Email</label><br />
+          <input
+            type="text"
+            class="input"
+            id="Email"
+            placeholder="Enter your Email"
+          />
+        </div>
+        <div class="Age">
+          <label for="age" class="label">Age</label><br />
+          <input
+            type="text"
+            class="input"
+            id="age"
+            placeholder="Enter your age"
+          />
+        </div>
+        <div>
+          <p class="gender">Gender</p>
+          <form
+            action="
+            "
+          class="form">
+        <div class="flex">  <label for="male">Male</label>
+            <input type="radio" id="male" /></div>  
+          <div class="flex">      <label for="female">Female</label>
+            <input type="radio" id="female" /></div>  
+           <div class="flex">     <label for="other">Other</label>
+            <input type="radio" id="other" /></div>  
+          </form>
+        </div>
+        <div>
+          <label for="options">Which option best describes you?</label
+          ><br /><br />
+          <select name="options" id="options" class="select">
+            <option value="Teacher">Tecaher</option>
+            <option value="Professor">Professor</option>
+            <option value="Tutor">Tutor</option>
+          </select>
+        </div>
+        <div>
+          <p>Your best programming language?</p>
+          <form action="" class="form">
+            <div class="flex">  <label for="c">C</label>
+            <input type="checkbox" name="c" id="c" /></div>  
+            <div class="flex">  <label for="python">Python</label>
+            <input type="checkbox" name="python" id="python" /></div>  
+            <div class="flex">  <label for="Java">Java</label>
+            <input type="checkbox" name="Java" id="Java" /></div>  
+          </form>
+        </div>
+      </div>
+      <button class="button">Submit</button>
+    </main>
+  </body>
+</html>

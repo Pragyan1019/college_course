@@ -1,0 +1,128 @@
+.ul{
+    list-style: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+#head-container{
+    background: linear-gradient(#37ca86,rgb(184, 161, 184));
+}
+nav ul > li{
+display: inline-block;
+
+}
+nav a{
+    font-size: large;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+        transition: 0.3s ease-in;
+        margin-left: 15px;
+
+}
+nav a:hover{
+    color: white;
+    background-color: rgb(88, 92, 96);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+#signup,#login{
+
+padding: 10px;
+border-radius: 10px 14px;
+border: none;
+margin: 0 5px;
+color: white;
+font-weight: 600;
+cursor: pointer;
+}
+#signup{
+    background-color: blue;
+
+}
+#login:hover{
+    background-color: rgb(133, 133, 192);
+}
+#signup:hover{
+    background-color: rgb(44, 44, 106);
+}
+#login{
+    background-color: purple;
+
+}
+.card{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    background-image: url(backgroung.jpg);
+    background-size: cover;
+
+    
+}
+.card-title{
+width: 40%;
+  position: relative;
+
+}
+.slogans{
+    position: absolute;
+    bottom: 10vh;
+}
+#hero-btn{
+    margin-top: 20px;
+    display: flex;
+    gap: 1vw;
+}
+#hero-btn>button{
+padding: 10px;
+border-radius: 10px;
+border: 1px solid black;
+font-weight: 600;
+background: none;
+transition: 0.2s ease-in-out;
+}
+#hero-btn>button:hover{
+    background-color: rgb(126, 94, 126);
+    cursor: pointer;
+    color: white;
+}
+.services{
+    height: 8vh;
+    background-color: rgba(239, 239, 44, 0.826);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.box{
+margin-top: 10px;
+display: flex;
+justify-content: space-around;
+
+}
+.boxes{
+height: 40vh;
+width: 20vw;
+border: 1px solid black;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: x-large;
+font-weight: 500;
+border-radius: 20px;
+border: 3px solid rgb(192, 192, 3);
+box-shadow: 2px 2px rgb(213, 213, 190);
+
+}

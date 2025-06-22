@@ -1,0 +1,25 @@
+.first{
+    background-color: black;
+    display: block;
+    height: 10vh;
+
+}
+.container{
+        display: flex;
+gap: 10px;
+
+}
+.second{
+    background-color: slategrey;
+    width:20%;
+    height: 80px;
+}
+.third{
+        background-color: black;
+display: block;
+    height: 10vh;
+
+}
+*{
+    margin: 10px;
+}

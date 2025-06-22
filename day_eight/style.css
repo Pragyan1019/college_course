@@ -1,0 +1,75 @@
+ body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+ .container{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+ 
+display: flex;
+gap: 10px;
+}
+ .container1{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+ 
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+.flex-item{
+    padding: 20px;
+}
+ .container2{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+  height: 20vh;
+ 
+display: flex;
+align-items: center;
+gap: 10px;
+}
+ .container3{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+  height: 20vh;
+ 
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+ .container4{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+  height: 20vh;
+ 
+display: flex;
+align-items: center;
+justify-content:space-between ;
+gap: 10px;
+}
+ .container5{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+  height: 20vh;
+ 
+display: flex;
+align-items: center;
+justify-content:space-around ;
+gap: 10px;
+}
+ .container6{ /* Add your code here */
+  border: 2px solid #333;
+  padding: 20px;
+
+ 
+display: flex;
+flex-direction: column;
+
+
+gap: 10px;
+
+}
+
